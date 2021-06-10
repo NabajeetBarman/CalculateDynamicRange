@@ -46,7 +46,7 @@ for f = 1:F%F
 	DR_array(f) = log2(Lmax/Lmin);
 end
 DR_max = max(DR_array);
-DR_max = mean(DR_array);
+DR = mean(DR_array);
 fname = sprintf('%s.mat', sequence_name);
 save(fname);
 
