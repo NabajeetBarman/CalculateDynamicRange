@@ -38,14 +38,15 @@ for f = 1:F%F
 	% Exclude 1% of pixels
 	Th1=numelY/100; %% 1% of pixels
 	Th2=numelY-Th1;
-	tempY=tempY(Th1:Th2);
+	tempY=tempY(Th1+1:Th2);
 
 	% Calculate characteristics
 	Lmin = tempY(1);
 	Lmax = tempY(end);
 	DR_array(f) = log2(Lmax/Lmin);
 end
-DR = max(DR_array);
+DR_max = max(DR_array);
+DR_max = mean(DR_array);
 fname = sprintf('%s.mat', sequence_name);
 save(fname);
 
